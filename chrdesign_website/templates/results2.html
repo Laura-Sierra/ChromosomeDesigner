@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+    li{
+    margin: 15px 0;
+    }
+</style>
+
+
+
+<!-- Masthead-->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="{%static 'img/logo.png'%}" alt="" />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">We build synthetic chromosomes</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Chromosome map generator & Primer design tool</p>
+        <p class="masthead-subheading font-weight-light mb-0">for <i>in vivo</i> assembly</p>
+
+    </div>
+</header>
+
+
+<body>
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-xl-6">
+
+    <br>
+    <h2>Downloads</h2>
+        </br>
+
+    <div class="alert alert-danger" role="alert">
+        We could not create primers for some of the fragments (check: Primer_DB.xlxs).</br>
+        Try again releasing some constraints and/or revise that your input is correct. 
+    </div>
+</br>
+    <ul>
+        <li>    
+            <h4>Primer Database</h4> 
+            <a href="{% static 'download/Primer_DB.xlsx' %}">Primer_DB.xlsx</a>
+        </li>
+        <li>
+            <h4>Input Data Summary</h4>
+            <a href="{% static 'download/Input.xlsx' %}">Input.xlsx</a>
+        </li>
+    </ul> 
+
+
+
+
+    </br>
+
+
+    
+</body>
+{% endblock %}

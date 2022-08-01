@@ -1,0 +1,427 @@
+{%load static%}
+
+<style>
+    .required:after {
+      content:" *";
+      color: red;
+    }
+
+    /* Style the buttons that are used to open and close the accordion panel */
+    .accordion {
+    background-color: #ddf7f2;
+    color: #17a98c;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    }
+
+    .accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 11px;
+    color: #17a98c;
+    float: right;
+    margin-left: 5px;
+    }
+
+    .active2:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active2, .accordion:hover {
+    background-color: #ddd;
+    }
+
+    .active2, .accordion:after {
+    background-color: #ddf7f2;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    .panel {
+    padding: 0 18px;
+    background-color: white;
+    border:solid 3px #ddf7f2;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    } 
+
+    .container2{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-top: 60px;
+    }
+    .container3{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-top: 60px;
+    }
+
+    .container4{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-top: 60px;
+    }
+    input[type="range"]{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        outline: none;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        background-color: transparent;
+        pointer-events: none;
+    }
+    .slider-track{
+        width: 200px;
+        height: 5px;
+        background-color: #d5d5d5;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border-radius: 5px;
+    }
+
+    .slider-track3{
+        width: 200px;
+        height: 5px;
+        background-color: #d5d5d5;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border-radius: 5px;
+    }
+
+    .slider-track4{
+        width: 200px;
+        height: 5px;
+        background-color: #d5d5d5;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border-radius: 5px;
+    }
+    input[type="range"]::-webkit-slider-runnable-track{
+        -webkit-appearance: none;
+        height: 5px;
+    }
+    input[type="range"]::-moz-range-track{
+        -moz-appearance: none;
+        height: 5px;
+    }
+    input[type="range"]::-ms-track{
+        appearance: none;
+        height: 5px;
+    }
+    input[type="range"]::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        height: 1em;
+        width: 1em;
+        background-color: #17a98c;
+        cursor: pointer;
+        margin-top: -9px;
+        pointer-events: auto;
+        border-radius: 50%;
+    }
+    input[type="range"]::-moz-range-thumb{
+        -webkit-appearance: none;
+        height: 1em;
+        width: 1em;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: #17a98c;
+        pointer-events: auto;
+    }
+    input[type="range"]::-ms-thumb{
+        appearance: none;
+        height: 1em;
+        width: 1em;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: #17a98c;
+        pointer-events: auto;
+    }
+    input[type="range"]:active::-webkit-slider-thumb{
+        background-color: #ffffff;
+        border: 3px solid #17a98c;
+    }
+    .values{
+        background-color: #17a98c;
+        width: 40%;
+        position: absolute;
+        top: -60px;
+        left: 60px ;
+        margin: auto;
+        padding: 6px 0;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        color: #ffffff;
+    }
+    .values:before{
+        content: "";
+        position: absolute;
+        height: 0;
+        width: 0;
+        border-top: 15px solid #17a98c;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        margin: auto;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+    }
+
+    .values3{
+        background-color: #17a98c;
+        width: 40%;
+        position: absolute;
+        top: -60px;
+        left: 60px ;
+        margin: auto;
+        padding: 6px 0;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        color: #ffffff;
+    }
+    .values3:before{
+        content: "";
+        position: absolute;
+        height: 0;
+        width: 0;
+        border-top: 15px solid #17a98c;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        margin: auto;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+    }
+
+    .values4{
+        background-color: #17a98c;
+        width: 40%;
+        position: absolute;
+        top: -60px;
+        left: 60px ;
+        margin: auto;
+        padding: 6px 0;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        color: #ffffff;
+    }
+    .values4:before{
+        content: "";
+        position: absolute;
+        height: 0;
+        width: 0;
+        border-top: 15px solid #17a98c;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        margin: auto;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+    }
+</style>
+
+
+<div data-formset-form>
+<div class="image-form">
+
+<!-- h2 tag -->
+<div id="frag_num">
+</br>
+    <h2>Fragment</h2>
+</div>
+<div >
+    
+    {{form.name.label_tag}}
+    <p>{{form.name}}</p>
+    {% for error in form.name.errors %}                                
+        <p class="help-block text-danger">{{error}}</p>
+    {% endfor %}
+            
+    {{form.start.label_tag}}
+    <p>{{form.start}}</p>
+    {% for error in form.start.errors %}
+        <p class="help-block text-danger">{{error}}</p>
+    {% endfor %}
+
+    
+    {{form.end.label_tag}}
+    <p>{{form.end}}</p>
+    {% for error in form.end.errors %}
+        <p class="help-block text-danger">{{error}}</p>
+    {% endfor %}
+
+
+    {{form.genbank.label_tag}}
+    <p>{{form.genbank}}</p>
+    {% for error in form.genbank.errors %}
+        <p class="help-block text-danger">{{error}}</p>
+    {% endfor %}
+
+
+    <button class="accordion">Adjust primer settings for this fragment</button>
+    <div class="panel">
+        <p></p>
+<!--         <p><b>Specify (an) existing primer(s) to amplify this fragment</b> {{form.Existing}}</p>
+        <p style="color:rgb(168, 168, 168);">If a sequence is not introduced, new primer(s) will be generated</p>
+
+        {% for error in form.Existing.errors %}
+            <p class="help-block text-danger">{{error}}</p>
+        {% endfor %}
+
+
+        {{form.Seq1.label_tag}}
+        <p>{{form.Seq1}}</p>
+            {% for error in form.Seq1.errors %}                                
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+
+        {{form.Seq2.label_tag}}
+        <p>{{form.Seq2}}</p>
+            {% for error in form.Seq2.errors %}                                
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %} -->
+
+
+        <p><b>Tick to apply specific primer settings to this fragment: </b> {{form.Restrictions}}</p>
+        <p style="color:rgb(168, 168, 168);">If this box is not ticked, the settings from the 'Primer settings' tab will be applied</p>
+
+        {% for error in form.Restrictions.errors %}
+            <p class="help-block text-danger">{{error}}</p>
+        {% endfor %}
+        <p><u>Choose settings:</u></p>
+
+        <p>Primer GC content (%) between:</p>
+
+        <div class=" container2">
+
+            <div class="slider-track">
+                <div class="values">
+                    <span id="range1">
+                        40
+                    </span>
+                    <span> &dash; </span>
+                    <span id="range2">
+                        60
+                    </span>
+                </div>
+
+                </br></br>
+                {{form.GC_min}}{{form.GC_max}}
+
+            {% for error in form.GC_min.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+            {% for error in form.GC_max.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+            </div>
+        </div>
+
+
+        <p>Annealing temperature (°C) between:</p>
+
+        <div class=" container3">
+
+            <div class="slider-track3">
+                <div class="values3">
+                    <span id="range13">
+                        58
+                    </span>
+                    <span> &dash; </span>
+                    <span id="range23">
+                        64
+                    </span>
+                </div>
+
+                </br></br>
+                {{form.Ta_min}}{{form.Ta_max}}
+
+            {% for error in form.Ta_min.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+            {% for error in form.Ta_max.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+            </div>
+        </div>
+
+
+        <p>Maximum melting temperature (°C) difference 
+        </br>   between forward and reverse primers:</p>
+
+
+        <div class=" container4">
+
+            <div class="slider-track4">
+                <div class="values4">
+                    <span id="range24">
+                        5
+                    </span>
+                </div>
+
+                </br></br>
+                {{form.Tm_dif}}
+
+            {% for error in form.Tm_dif.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+
+            </div>
+        </div>
+
+
+        <p>  Range: {{form.Range}} </p>
+        <p style="color:rgb(168, 168, 168);">Search within a range of 100 nt upstream and downstream the start and end position of the fragment, respectively.</p>
+        {% for error in form.Range.errors %}
+            <p class="help-block text-danger">{{error}}</p>
+        {% endfor %}
+    </br>
+    </div> 
+
+
+</div>
+</br>
+
+    {% if form.DELETE %}
+    <div class="d-none d-print-block">{{ form.DELETE }}</div>
+    
+        <button class="align-self-center btn btn-danger del-fragment-form" style="background-color: #cb8bab ; border-color:  #cb8bab ;" type="button" data-formset-delete-button>Delete fragment</button>
+    {% endif %}
+    {% if form.ORDER %}
+    <!-- <class class="d-none d-print-block">{{form.ORDER}}</class> -->
+    <class class="d-none d-print-block">{{form.ORDER}}</class>
+    
+
+        <button class="align-self-center btn btn-danger o-fragment-form" style="background-color: #acbbc9 ; border-color:  #acbbc9 ;" type="button" data-formset-move-up-button>Move up</button>
+        <button class="align-self-center btn btn-danger o-fragment-form" style="background-color: #acbbc9 ; border-color:  #acbbc9 ;" type="button" data-formset-move-down-button>Move down</button>
+    {% endif %}
+</br>
+</div>
+</div>
+
+
+

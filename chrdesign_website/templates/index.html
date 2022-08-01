@@ -1,0 +1,986 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+<style>
+
+    .container5{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-top: 60px;
+    }
+
+    .container6{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-top: 60px;
+    }
+
+    .container7{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-top: 60px;
+    }
+    input[type="range"]{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        outline: none;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        background-color: transparent;
+        pointer-events: none;
+    }
+    .slider-track5{
+        width: 200px;
+        height: 5px;
+        background-color: #d5d5d5;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border-radius: 5px;
+    }
+
+    .slider-track6{
+        width: 200px;
+        height: 5px;
+        background-color: #d5d5d5;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border-radius: 5px;
+    }
+
+    .slider-track7{
+        width: 200px;
+        height: 5px;
+        background-color: #d5d5d5;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border-radius: 5px;
+    }
+    input[type="range"]::-webkit-slider-runnable-track{
+        -webkit-appearance: none;
+        height: 5px;
+    }
+    input[type="range"]::-moz-range-track{
+        -moz-appearance: none;
+        height: 5px;
+    }
+    input[type="range"]::-ms-track{
+        appearance: none;
+        height: 5px;
+    }
+    input[type="range"]::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        height: 1em;
+        width: 1em;
+        background-color: #17a98c;
+        cursor: pointer;
+        margin-top: -9px;
+        pointer-events: auto;
+        border-radius: 50%;
+    }
+    input[type="range"]::-moz-range-thumb{
+        -webkit-appearance: none;
+        height: 1em;
+        width: 1em;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: #17a98c;
+        pointer-events: auto;
+    }
+    input[type="range"]::-ms-thumb{
+        appearance: none;
+        height: 1em;
+        width: 1em;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: #17a98c;
+        pointer-events: auto;
+    }
+    input[type="range"]:active::-webkit-slider-thumb{
+        background-color: #ffffff;
+        border: 3px solid #17a98c;
+    }
+    .values5{
+        background-color: #17a98c;
+        width: 40%;
+        position: absolute;
+        top: -60px;
+        left: 60px ;
+        margin: auto;
+        padding: 6px 0;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        color: #ffffff;
+    }
+    .values5:before{
+        content: "";
+        position: absolute;
+        height: 0;
+        width: 0;
+        border-top: 15px solid #17a98c;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        margin: auto;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+    }
+
+    .values6{
+        background-color: #17a98c;
+        width: 40%;
+        position: absolute;
+        top: -60px;
+        left: 60px ;
+        margin: auto;
+        padding: 6px 0;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        color: #ffffff;
+    }
+    .values6:before{
+        content: "";
+        position: absolute;
+        height: 0;
+        width: 0;
+        border-top: 15px solid #17a98c;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        margin: auto;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+    }
+
+    .values7{
+        background-color: #17a98c;
+        width: 40%;
+        position: absolute;
+        top: -60px;
+        left: 60px ;
+        margin: auto;
+        padding: 6px 0;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        color: #ffffff;
+    }
+    .values7:before{
+        content: "";
+        position: absolute;
+        height: 0;
+        width: 0;
+        border-top: 15px solid #17a98c;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        margin: auto;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+    }
+
+/* Style the tab */
+.tab {
+  width: 60%;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid white;
+  background-color: white;
+  border-bottom: none;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: #ddf7f2;
+  float: left;
+  border: 3px solid #1abc9c;
+  border-bottom: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #1abc9c;
+}
+
+#excel {
+  background-color: #e9f5ff;
+  float: center;
+  border: 3px solid #2c3e50;
+  border-bottom: none; 
+    border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #2c3e50;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+#excel:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #1abc9c;
+  border: 3px solid #1abc9c;
+  border-bottom: none;  color: white;
+  font-weight: bold;
+}
+
+#excel.active {
+  background-color: #2c3e50;
+  border: 3px solid #2c3e50;
+  border-bottom: none; 
+  color: white;
+  font-weight: bold;
+}
+
+/* Style the tab content */
+.tabcontent {
+  width: 60%;
+  position: relative;
+  margin: auto;
+  display: none;
+  padding: 6px 12px;
+  background-color: #f8fcfb;
+  border: 3px solid #1abc9c;
+} 
+
+#Excel {
+  width: 60%;
+  position: relative;
+  margin: auto;
+  display: none;
+  padding: 6px 12px;
+  background-color: #f5faff;
+  border: 3px solid #2c3e50;
+} 
+</style>
+
+
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+            <img class="masthead-avatar mb-5" src="{%static 'img/logo.png'%}" alt="" />
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">We build synthetic chromosomes</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">Chromosome map generator & Primer design tool</p>
+            <p class="masthead-subheading font-weight-light mb-0">for <i>in vivo</i> assembly</p>
+
+        </div>
+    </header>
+
+    <body onload="updateNumberBlue()">
+        </br>
+    <!-- Tab links -->
+    <div class="tab">
+        <button href="#!" style="width: 20%;   border-top-left-radius: 20px; " class="tablinks" onclick="openCity(event, 'Enter')" id="defaultOpen">Enter fragments</button>
+        <button href="#!" style="width: 20%; border-left: none; border-top-right-radius: 20px;" class="tablinks" onclick="openCity(event, 'Primer settings')">Primer settings</button>
+        <button href="#!" style="float: right; width: 40%;" class="tablinks" id="excel" onclick="openCity(event, 'Excel')">Enter fragments from file</button>
+
+    </div>
+    <div  id="Enter" class="tabcontent">
+
+        {{ formset.media }}
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+<!--                 {% if success%}
+                <script>
+                    openCity('onload', 'Excel')
+                    </script>
+                <div class="alert alert-success" role="alert">
+                    We could not find the genbank file(s) specified in the excel sheet among the uploaded genbank files files.
+                </div>
+                {% endif %} -->
+                {% if formset.errors%}
+                </br>
+                <div class="alert alert-danger" role="alert">
+                    Please, complete the missing/incorrect fields.
+                    </br>
+                    You may need to re-upload the genbank files and sort your fragments again!
+                </div>
+                {% endif %}
+    
+                <!-- Iterate formset-->
+  
+                <form action="." enctype="multipart/form-data" id="Form-container" novalidate="novalidate", method="post">
+                {% csrf_token %}
+                {% load formset_tags %}
+                <div id="formset" data-formset-prefix="{{ formset.prefix }}">
+                    {{ formset.management_form }}
+                    <div data-formset-body>
+                        <!-- New forms will be inserted in here -->
+                     {% for form in formset %}
+                        {% include "form.html" with form=form only %}
+                    {% endfor %}
+                    </div>
+
+                    <!-- The empty form template. By wrapping this in a <script> tag, the
+                    __prefix__ placeholder can easily be replaced in both attributes and
+                    any scripts -->
+                    <script type="form-template" data-formset-empty-form>
+                        {% escapescript %}
+                            {% include "form.html" with form=formset.empty_form only %}
+                        {% endescapescript %}
+                    </script>
+
+                    <!-- This button will add a new form when clicked -->
+                    </br>
+                    <input  class="btn btn-primary btn-xl text-white add-fragment-form" style="background-color: #2c3e50; border-color: #2c3e50;" type="button" value="Add fragment" data-formset-add>
+                    <button id="Sub" name="btnform1" class="btn btn-primary btn-xl text-white" type="submit">Submit</button>
+                    </br>
+                </br>
+
+                    <script>
+                    // Add/Remove/Move-up/Move-down
+                    jQuery(function($) {
+                        $("#formset").formset({
+                            'animateForms': true,
+                            'reorderMode': 'animate'
+                        }).on('formAdded', function() {
+                            console.log("Form added", this, arguments);
+                        }).on('formDeleted', function() {
+                            console.log("Form deleted", this, arguments);
+                        });
+                    });
+                    // Check if less than two forms: alert user and disable submit button
+                    let mainForm = document.querySelector("#Form-container");
+                    mainForm.addEventListener("click", function (event) {
+                        if (event.target.classList.contains("del-fragment-form")) {
+                            var formset = $('#formset').formset('getOrCreate');
+                            if (formset.activeFormCount() < 2) { 
+                                alert("At least two fragments are requiered!")
+                                document.getElementById("Sub").disabled = true;
+                            }
+                        }
+                        if (event.target.classList.contains("add-fragment-form")) {
+                            var formset = $('#formset').formset('getOrCreate');
+                            if (formset.activeFormCount() == 2) { 
+                                document.getElementById("Sub").disabled = false;
+                            }
+                        }
+                    });
+
+                    // Function to update fragment number h2 tag
+                    const imageForm = document.getElementsByClassName("image-form");
+                    function updateNumber() {
+                        let a = 1
+                        for (let form of imageForm) {
+                            var elems = form.querySelectorAll('h2');
+                            del=form.querySelector('[id*="DELETE"]').checked
+                            if (! del) { 
+                                elems[0].innerHTML = 'Fragment #'+a;
+                                a=a+1
+                            }
+
+                        } 
+                    }
+
+
+                    // Function to make accordions scroll upon click 
+                    var acc = document.getElementsByClassName("accordion");
+                    function accordion(){
+                        
+                        var i;
+                        for (i = 0; i < acc.length; i++) {
+                        acc[i].addEventListener("click", function(event) {
+                            event.preventDefault();
+                            this.classList.toggle("active2");
+                            var panel = this.nextElementSibling;
+                            if (panel.style.maxHeight) {
+                            panel.style.maxHeight = null;
+                            } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                            }
+                        });
+                        }
+                    }
+                    accordion()
+
+                    // Funtion to make accordions of added forms scroll upon click
+                    function accordionadd(){
+                        acc[acc.length-1].addEventListener("click", function(event) {
+                            event.preventDefault();
+                            this.classList.toggle("active2");
+                            var panel = this.nextElementSibling;
+                            if (panel.style.maxHeight) {
+                            panel.style.maxHeight = null;
+                            } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                            }
+                        });
+                        }
+                    // Funtion to paint in blue slide bar and to update fragment number h2 tag upon load and fragment addition
+                    function updateNumberBlue() {
+                        let a = 1
+                        for (let form of imageForm) {
+                            var elems = form.querySelectorAll('h2');
+                            del=form.querySelector('[id*="DELETE"]').checked
+                            if (! del) { 
+                                elems[0].innerHTML = 'Fragment #'+a;
+                                a=a+1
+                            }
+
+                        } 
+                        //GC
+                        var sliderOne_all = document.querySelectorAll("[id='slider-1']");
+                        let sliderTwo_all = document.querySelectorAll("[id='slider-2']");
+                        let displayValOne_all = document.querySelectorAll("[id='range1']");
+                        let displayValTwo_all = document.querySelectorAll("[id='range2']");
+                        let sliderTrack_all = document.querySelectorAll(".slider-track");
+                        for(var i = 0; i < sliderOne_all.length; i++) {
+                            var sliderOne = sliderOne_all[i];
+                            let sliderTwo = sliderTwo_all[i];
+                            let displayValOne = displayValOne_all[i]
+                            let displayValTwo = displayValTwo_all[i]
+                            let minGap = 0;
+                            let sliderTrack = sliderTrack_all[i]
+                            let sliderMaxValue = sliderOne.max;
+
+                            displayValOne.innerHTML = sliderOne.value;
+                            displayValTwo.innerHTML = sliderTwo.value;
+                            percent1 = (sliderOne.value / sliderMaxValue) * 100;
+                            percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+                            sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #17a98c ${percent1}% , #17a98c ${percent2}%, #dadae5 ${percent2}%)`;
+                        }
+
+
+                        //Ta
+                        var sliderOne_all1 = document.querySelectorAll("[id='slider-13']");
+                        let sliderTwo_all1 = document.querySelectorAll("[id='slider-23']");
+                        let displayValOne_all1 = document.querySelectorAll("[id='range13']");
+                        let displayValTwo_all1 = document.querySelectorAll("[id='range23']");
+                        let sliderTrack_all1 = document.querySelectorAll(".slider-track3");
+                        for(var i = 0; i < sliderOne_all1.length; i++) {
+                            var sliderOne1 = sliderOne_all1[i];
+                            let sliderTwo1 = sliderTwo_all1[i];
+                            let displayValOne1 = displayValOne_all1[i]
+                            let displayValTwo1 = displayValTwo_all1[i]
+                            let minGap = 0;
+                            let sliderTrack1 = sliderTrack_all1[i]
+                            let sliderMaxValue1 = sliderOne1.max;
+                            let sliderMinValue1 = sliderOne1.min;
+                            displayValOne1.innerHTML = sliderOne1.value;
+                            displayValTwo1.innerHTML = sliderTwo1.value;
+                            percent11 = ((sliderOne1.value - sliderMinValue1)/ (sliderMaxValue1 - sliderMinValue1))* 100;
+                            percent21 = ((sliderTwo1.value - sliderMinValue1)/ (sliderMaxValue1 - sliderMinValue1))* 100;
+                            sliderTrack1.style.background = `linear-gradient(to right, #dadae5 ${percent11}% , #17a98c ${percent11}% , #17a98c ${percent21}%, #dadae5 ${percent21}%)`;
+                        }
+                        // Tm dif
+                        let sliderTwo_all2 = document.querySelectorAll("[id='slider-24']");
+                        let displayValTwo_all2 = document.querySelectorAll("[id='range24']");
+                        let sliderTrack_all2 = document.querySelectorAll(".slider-track4");
+                        for(var i = 0; i < sliderTwo_all2.length; i++) {
+                            let sliderTwo2 = sliderTwo_all2[i];
+                            let displayValTwo2 = displayValTwo_all2[i]
+                            let minGap = 0;
+                            let sliderTrack2 = sliderTrack_all2[i]
+                            let sliderMaxValue2 = sliderTwo2.max;
+                            let sliderMinValue2 = sliderTwo2.min;
+                            displayValTwo2.innerHTML = sliderTwo2.value;
+                            percent12 = 0;
+                            percent22 = ((sliderTwo2.value - sliderMinValue2)/ (sliderMaxValue2 - sliderMinValue2))* 100;
+                            sliderTrack2.style.background = `linear-gradient(to right, #dadae5 ${percent12}% , #17a98c ${percent12}% , #17a98c ${percent22}%, #dadae5 ${percent22}%)`;
+                        }
+                        //GC general
+                        var sliderOne_all5 = document.querySelectorAll("[id='slider-15']");
+                        let sliderTwo_all5 = document.querySelectorAll("[id='slider-25']");
+                        let displayValOne_all5 = document.querySelectorAll("[id='range15']");
+                        let displayValTwo_all5 = document.querySelectorAll("[id='range25']");
+                        let sliderTrack_all5 = document.querySelectorAll(".slider-track5");
+                        for(var i = 0; i < sliderOne_all5.length; i++) {
+                            var sliderOne5 = sliderOne_all5[i];
+                            let sliderTwo5 = sliderTwo_all5[i];
+                            let displayValOne5 = displayValOne_all5[i]
+                            let displayValTwo5 = displayValTwo_all5[i]
+                            let minGap = 0;
+                            let sliderTrack5 = sliderTrack_all5[i]
+                            let sliderMaxValue5 = sliderOne5.max;
+
+                            displayValOne5.innerHTML = sliderOne5.value;
+                            displayValTwo5.innerHTML = sliderTwo5.value;
+                            percent15 = (sliderOne5.value / sliderMaxValue5) * 100;
+                            percent25 = (sliderTwo5.value / sliderMaxValue5) * 100;
+                            sliderTrack5.style.background = `linear-gradient(to right, #dadae5 ${percent15}% , #17a98c ${percent15}% , #17a98c ${percent25}%, #dadae5 ${percent25}%)`;
+                        }
+
+
+
+
+
+                        //Ta general
+                        var sliderOne_all6 = document.querySelectorAll("[id='slider-16']");
+                        let sliderTwo_all6 = document.querySelectorAll("[id='slider-26']");
+                        let displayValOne_all6 = document.querySelectorAll("[id='range16']");
+                        let displayValTwo_all6 = document.querySelectorAll("[id='range26']");
+                        let sliderTrack_all6 = document.querySelectorAll(".slider-track6");
+                        for(var i = 0; i < sliderOne_all6.length; i++) {
+                            var sliderOne6 = sliderOne_all6[i];
+                            let sliderTwo6 = sliderTwo_all6[i];
+                            let displayValOne6 = displayValOne_all6[i]
+                            let displayValTwo6 = displayValTwo_all6[i]
+                            let minGap = 0;
+                            let sliderTrack6 = sliderTrack_all6[i]
+                            let sliderMaxValue6 = sliderOne6.max;
+                            let sliderMinValue6 = sliderOne6.min;
+                            displayValOne6.innerHTML = sliderOne6.value;
+                            displayValTwo6.innerHTML = sliderTwo6.value;
+                            percent16 = ((sliderOne6.value - sliderMinValue6)/ (sliderMaxValue6 - sliderMinValue6))* 100;
+                            percent26 = ((sliderTwo6.value - sliderMinValue6)/ (sliderMaxValue6 - sliderMinValue6))* 100;
+                            sliderTrack6.style.background = `linear-gradient(to right, #dadae5 ${percent16}% , #17a98c ${percent16}% , #17a98c ${percent26}%, #dadae5 ${percent26}%)`;
+                        }
+                        // Tm dif general
+                        let sliderTwo_all7 = document.querySelectorAll("[id='slider-27']");
+                        let displayValTwo_all7 = document.querySelectorAll("[id='range27']");
+                        let sliderTrack_all7 = document.querySelectorAll(".slider-track7");
+                        for(var i = 0; i < sliderTwo_all7.length; i++) {
+                            let sliderTwo7 = sliderTwo_all7[i];
+                            let displayValTwo7 = displayValTwo_all7[i]
+                            let minGap = 0;
+                            let sliderTrack7 = sliderTrack_all7[i]
+                            let sliderMaxValue7 = sliderTwo7.max;
+                            let sliderMinValue7 = sliderTwo7.min;
+                            displayValTwo7.innerHTML = sliderTwo7.value;
+                            percent17 = 0;
+                            percent27 = ((sliderTwo7.value - sliderMinValue7)/ (sliderMaxValue7 - sliderMinValue7))* 100;
+                            sliderTrack7.style.background = `linear-gradient(to right, #dadae5 ${percent17}% , #17a98c ${percent17}% , #17a98c ${percent27}%, #dadae5 ${percent27}%)`;
+                        }
+
+
+                    }
+                    // Update fragment number h2 tag and make accordions scroll
+                    mainForm.addEventListener("click", function (event) {
+                        // delete
+                        if (event.target.classList.contains("del-fragment-form")) {
+                            updateNumber()
+                        }
+                        // add
+                        if (event.target.classList.contains("add-fragment-form")) {
+                            updateNumberBlue()
+                            accordionadd() 
+                        }
+                        // move up or down
+                        if (event.target.classList.contains("o-fragment-form")) {
+                            let a = 1
+                            var $cu = $(imageForm[0]).find('[name*=ORDER]');
+                            var current = parseInt($cu.val());
+                            var elems = imageForm[0].querySelectorAll('h2');
+                            elems[0].innerHTML = 'Fragment #'+a;
+                            current = -100
+                            for (let i = 0; i < imageForm.length; i++) { 
+                                del=imageForm[i].querySelector('[id*="DELETE"]').checked
+                                if (! del) {                            
+                                var $o = $(imageForm[i]).find('[name*=ORDER]');
+                                var order = parseInt($o.val());
+                                if (order<current){                                    
+                                    var $o = $(imageForm[i]).find('[name*=ORDER]');
+                                    var order = parseInt($o.val());
+                                    var elems = imageForm[i].querySelectorAll('h2');
+                                    b=a-1
+                                    elems[0].innerHTML = 'Fragment #'+b;
+                                    if (imageForm[i-1].querySelector('[id*="DELETE"]').checked) {   
+                                    var elemsprev = imageForm[i-2].querySelectorAll('h2');
+                                    elemsprev[0].innerHTML = 'Fragment #'+a;
+                                    a=a+1}
+                                    else{
+                                        var elemsprev = imageForm[i-1].querySelectorAll('h2');
+                                    elemsprev[0].innerHTML = 'Fragment #'+a;
+                                    a=a+1
+                                    }
+                                }
+                                else{
+                                    var elems = imageForm[i].querySelectorAll('h2');
+                                    del=imageForm[i].querySelector('[id*="DELETE"]').checked
+                                    if (! del) {  
+                                        elems[0].innerHTML = 'Fragment #'+a;
+                                        a=a+1
+                                    }
+
+                                }
+                                current = order
+                                }
+                                
+
+                            }
+
+                        }
+                    });
+
+                    // slider GC
+                    mainForm.addEventListener('input', function() {
+                        var sliderOne = event.target.parentElement.querySelectorAll("[id='slider-1']")[0];
+                        let sliderTwo = event.target.parentElement.querySelectorAll("[id='slider-2']")[0];
+                        let displayValOne = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range1']")[0];
+                        let displayValTwo = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range2']")[0];
+                        let minGap = 0;
+                        let sliderTrack = event.target.parentElement.parentElement.parentElement.querySelectorAll(".slider-track")[0];
+                        let sliderMaxValue = sliderOne.max;
+                        if (event.target.id == 'slider-1'){
+                            if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+                                sliderOne.value = parseInt(sliderTwo.value) - minGap;
+                            }
+                        }
+                        else{
+                            if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+                                sliderTwo.value = parseInt(sliderOne.value) + minGap;
+                            }                
+                        }
+                        displayValOne.innerHTML = sliderOne.value;
+                        displayValTwo.innerHTML = sliderTwo.value;
+                        percent1 = (sliderOne.value / sliderMaxValue) * 100;
+                        percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+                        sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #17a98c ${percent1}% , #17a98c ${percent2}%, #dadae5 ${percent2}%)`;
+                    }, false)
+
+                    // slider Ta
+                    mainForm.addEventListener('input', function() {
+                        var sliderOne = event.target.parentElement.querySelectorAll("[id='slider-13']")[0];
+                        let sliderTwo = event.target.parentElement.querySelectorAll("[id='slider-23']")[0];
+                        let displayValOne = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range13']")[0];
+                        let displayValTwo = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range23']")[0];
+                        let minGap = 0;
+                        let sliderTrack = event.target.parentElement.parentElement.parentElement.querySelectorAll(".slider-track3")[0];
+                        let sliderMaxValue = sliderOne.max;
+                        let sliderMinValue = sliderOne.min;
+                        if (event.target.id == 'slider-13'){
+                            if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+                                sliderOne.value = parseInt(sliderTwo.value) - minGap;
+                            }
+                        }
+                        else{
+                            if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+                                sliderTwo.value = parseInt(sliderOne.value) + minGap;
+                            }                
+                        }
+                        displayValOne.innerHTML = sliderOne.value;
+                        displayValTwo.innerHTML = sliderTwo.value;
+                        percent1 = ((sliderOne.value - sliderMinValue)/ (sliderMaxValue - sliderMinValue))* 100;
+                        percent2 = ((sliderTwo.value - sliderMinValue)/ (sliderMaxValue - sliderMinValue))* 100;
+                        sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #17a98c ${percent1}% , #17a98c ${percent2}%, #dadae5 ${percent2}%)`;
+                    }, false)
+
+
+
+
+
+                    // slider Tm dif
+                    mainForm.addEventListener('input', function() {
+                        let sliderTwo = event.target.parentElement.querySelectorAll("[id='slider-24']")[0];
+                        let displayValTwo = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range24']")[0];
+                        let minGap = 0;
+                        let sliderTrack = event.target.parentElement.parentElement.parentElement.querySelectorAll(".slider-track4")[0];
+                        let sliderMaxValue = sliderTwo.max;
+                        let sliderMinValue = sliderTwo.min;
+                        displayValTwo.innerHTML = sliderTwo.value;
+                        percent1 = 0;
+                        percent2 = ((sliderTwo.value - sliderMinValue)/ (sliderMaxValue - sliderMinValue))* 100;
+                        sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #17a98c ${percent1}% , #17a98c ${percent2}%, #dadae5 ${percent2}%)`;
+                    }, false)
+
+                    // slider GC general
+                    document.addEventListener('input', function() {
+                        var sliderOne = event.target.parentElement.querySelectorAll("[id='slider-15']")[0];
+                        let sliderTwo = event.target.parentElement.querySelectorAll("[id='slider-25']")[0];
+                        let displayValOne = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range15']")[0];
+                        let displayValTwo = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range25']")[0];
+                        let minGap = 0;
+                        let sliderTrack = event.target.parentElement.parentElement.parentElement.querySelectorAll(".slider-track5")[0];
+                        let sliderMaxValue = sliderOne.max;
+                        if (event.target.id == 'slider-15'){
+                            if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+                                sliderOne.value = parseInt(sliderTwo.value) - minGap;
+                            }
+                        }
+                        else{
+                            if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+                                sliderTwo.value = parseInt(sliderOne.value) + minGap;
+                            }                
+                        }
+                        displayValOne.innerHTML = sliderOne.value;
+                        displayValTwo.innerHTML = sliderTwo.value;
+                        percent1 = (sliderOne.value / sliderMaxValue) * 100;
+                        percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+                        sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #17a98c ${percent1}% , #17a98c ${percent2}%, #dadae5 ${percent2}%)`;
+                    }, false)
+
+                    // slider Ta general
+                    document.addEventListener('input', function() {
+                        var sliderOne = event.target.parentElement.querySelectorAll("[id='slider-16']")[0];
+                        let sliderTwo = event.target.parentElement.querySelectorAll("[id='slider-26']")[0];
+                        let displayValOne = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range16']")[0];
+                        let displayValTwo = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range26']")[0];
+                        let minGap = 0;
+                        let sliderTrack = event.target.parentElement.parentElement.parentElement.querySelectorAll(".slider-track6")[0];
+                        let sliderMaxValue = sliderOne.max;
+                        let sliderMinValue = sliderOne.min;
+                        if (event.target.id == 'slider-16'){
+                            if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+                                sliderOne.value = parseInt(sliderTwo.value) - minGap;
+                            }
+                        }
+                        else{
+                            if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+                                sliderTwo.value = parseInt(sliderOne.value) + minGap;
+                            }                
+                        }
+                        displayValOne.innerHTML = sliderOne.value;
+                        displayValTwo.innerHTML = sliderTwo.value;
+                        percent1 = ((sliderOne.value - sliderMinValue)/ (sliderMaxValue - sliderMinValue))* 100;
+                        percent2 = ((sliderTwo.value - sliderMinValue)/ (sliderMaxValue - sliderMinValue))* 100;
+                        sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #17a98c ${percent1}% , #17a98c ${percent2}%, #dadae5 ${percent2}%)`;
+                    }, false)
+
+
+
+                    // slider Tm dif
+                    document.addEventListener('input', function() {
+                        let sliderTwo = event.target.parentElement.querySelectorAll("[id='slider-27']")[0];
+                        let displayValTwo = event.target.parentElement.parentElement.parentElement.querySelectorAll("[id='range27']")[0];
+                        let minGap = 0;
+                        let sliderTrack = event.target.parentElement.parentElement.parentElement.querySelectorAll(".slider-track7")[0];
+                        let sliderMaxValue = sliderTwo.max;
+                        let sliderMinValue = sliderTwo.min;
+                        displayValTwo.innerHTML = sliderTwo.value;
+                        percent1 = 0;
+                        percent2 = ((sliderTwo.value - sliderMinValue)/ (sliderMaxValue - sliderMinValue))* 100;
+                        sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #17a98c ${percent1}% , #17a98c ${percent2}%, #dadae5 ${percent2}%)`;
+                    }, false)
+
+                    function openCity(evt, cityName) {
+                        // Declare all variables
+                        var i, tabcontent, tablinks;
+
+                        // Get all elements with class="tabcontent" and hide them
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+
+                        // Get all elements with class="tablinks" and remove the class "active"
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+
+                        // Show the current tab, and add an "active" class to the button that opened the tab
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                        } 
+
+                        // Get the element with id="defaultOpen" and click on it
+                        document.getElementById("defaultOpen").click();
+                    </script>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+      <div id="Primer settings" class="tabcontent">
+        <div class="row justify-content-center">
+
+        <div class="col-lg-7 col-xl-6">
+        </br>
+
+        <h2>Primer settings</h2>
+
+        <p>Primer GC content (%) between:</p>
+
+        <div class=" container5">
+
+            <div class="slider-track5">
+                <div class="values5">
+                    <span id="range15">
+                        40
+                    </span>
+                    <span> &dash; </span>
+                    <span id="range25">
+                        60
+                    </span>
+                </div>
+
+                </br></br>
+                {{form1.GC_min}}{{form1.GC_max}}
+
+            {% for error in form1.GC_min.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+            {% for error in form1.GC_max.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+            </div>
+        </div>
+
+
+        <p>Annealing temperature (°C) between:</p>
+
+        <div class=" container6">
+
+            <div class="slider-track6">
+                <div class="values6">
+                    <span id="range16">
+                        58
+                    </span>
+                    <span> &dash; </span>
+                    <span id="range26">
+                        64
+                    </span>
+                </div>
+
+                </br></br>
+                {{form1.Ta_min}}{{form1.Ta_max}}
+
+            {% for error in form1.Ta_min.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+            {% for error in form1.Ta_max.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+            </div>
+        </div>
+
+
+        <p>Maximum melting temperature (°C) difference between forward and reverse primers:</p>
+
+
+        <div class=" container7">
+
+            <div class="slider-track7">
+                <div class="values7">
+                    <span id="range27">
+                        5
+                    </span>
+                </div>
+
+                </br></br>
+                {{form1.Tm_dif}}
+
+            {% for error in form1.Tm_dif.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}
+
+            </div>
+        </div>
+
+
+        <p>  Range: {{form1.Range}} </p>
+        <p style="color:rgb(168, 168, 168);">Search within a range of 100 nt upstream and downstream the start and end position of the fragment, respectively.</p>
+        
+        {% for error in form1.Range.errors %}
+            <p class="help-block text-danger">{{error}}</p>
+        {% endfor %}
+    </br></br>
+        </div>
+      </div>
+      </div>    
+    </form>
+
+
+
+
+    <div id="Excel" class="tabcontent">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-7 col-xl-6">
+            </br>
+
+            {% if success%}
+            <script>
+                openCity('onload', 'Excel')
+                </script>
+            <div class="alert alert-danger" role="alert">
+                We could not find the genbank file(s) specified in the excel sheet among the uploaded genbank files.
+            </div>
+            {% endif %}
+
+            {% if form2.errors%}
+            {% for hidden in formset.hidden_fields %}
+            {{ hidden }}
+            {% endfor %}
+
+            </br>
+            <script>
+            openCity('onclick', 'Excel')
+            </script>
+
+            <div class="alert alert-danger" role="alert">
+                Please, complete the missing/incorrect fields.
+                </br>
+            </div>
+            {% endif %}
+    
+            <h2>Excel</h2>
+        <form action="." enctype="multipart/form-data" id="Form-excel" novalidate="novalidate", method="post">
+            {{ formset.management_form }}
+            {% csrf_token %}
+            <p></p>
+            <a href="{% static 'DB_files/Fragments_Upload.xlsx' %}">Fragments_Upload.xlsx</a>
+            </br>
+            {{form2.ExcelFile.label_tag}}
+            <p>{{form2.ExcelFile}}</p>
+            {% for error in form2.ExcelFile.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}    </br>
+
+
+<!--             {{form2.Genbanks.label_tag}}
+            <p>{{form2.Genbanks}}</p>
+            {% for error in form2.Genbanks.errors %}
+                <p class="help-block text-danger">{{error}}</p>
+            {% endfor %}    </br> -->
+            <p>Genbank files (.gb .gbk):
+            </br>
+            <input type="file" accept=".gb,.gbk" name="Genbanks" multiple></p>
+            <button id="Sub_excel" name="btnform2" class="btn btn-primary btn-xl text-white" style="background-color: #2c3e50; border-color: #2c3e50;" type="submit">Submit</button>
+            </br>    
+        </form>
+</br>
+      </div>
+        </div>
+    </div>
+
+    </body>
+{% endblock %}
+

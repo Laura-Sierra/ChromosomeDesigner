@@ -1,0 +1,341 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+  }
+
+
+  figcaption {
+  color: #2c3e50;
+  padding: 2px;
+}
+
+#toc_container {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 20px;
+    width: auto;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
+
+  
+  
+  </style>
+<body>
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-xl-6">
+            <br><br>
+        Chromosome Designer is a tool to design synthetic chromosomes intended to be constructed in yeast via <i>in vivo</i> assembly (Fig. 1). 
+        This tool provides the primers required to create all the DNA fragments needed for the assembly, as well as the chromosome map that should result after assembly.
+
+    </div>
+    </div>
+    <figure>
+        <img class="center" src="{%static 'img/HRyeast.jpg'%}" alt="" />
+        <figcaption class="center"><small><b>Figure 1. <i>In vivo</i> assembly.</b> Yeast is transformed with a mixture of multiple linear DNA fragments that are stitched together through homologous recombination of overlapping terminal sequences.</small> 
+        </figcaption>
+      </figure> 
+      <div class="row justify-content-center">
+        <div class="col-lg-7 col-xl-6">
+            <br><br>
+
+
+            <div id="toc_container">
+                <p class="toc_title">Contents</p>
+                <ul class="toc_list">
+                  <li><a href="#First_Point_Header">1 Input</a>
+                  <ul>
+                    <li><a href="#First_Sub_Point_1">1.1 How to enter input?</a></li>
+                    <li><a href="#First_Sub_Point_2">1.2 How to modify primer settings?</a></li>
+                  </ul>
+                </li>
+                <li><a href="#Second_Point_Header">2 Output</a>
+                    <ul>
+                        <li><a href="#Second_Sub_Point_1">2.1 Primer Database</a></li>
+                        <li><a href="#Second_Sub_Point_2">2.2 Synthetic Chromosome Map</a></li>
+                        <li><a href="#Second_Sub_Point_3">2.3 Input Data Summary</a></li>
+
+                      </ul>
+                
+                </li>
+                </ul>
+                </div>
+                <br><br>
+        <h3 id="First_Point_Header">1 Input</h3>
+        For each of the fragments, Chromosome Designer requires the following information:
+        <ul>
+            <li>Fragment name</li>
+            <li>Genbank file of the DNA that would serve as template to amplify the fragment</li>
+            <li>Start position of the fragment within this template</li>
+            <li>End position of the fragment within this template</li>
+        </ul>
+
+        <b><u>Example</u></b><br>
+        Imagine that we want to create a simple plasmid containing a yeast selection marker (<i>URA3</i>) and a yeast replication origin (2micron). Based on the maps shown in Fig. 2, the input information will be:
+        <br><br>
+        <table width="100%">
+            <tr>
+              <th></th>
+              <th>Fragment 1</th>
+              <th>Fragment 2</th>
+            </tr> 
+            <tr>
+              <td>Fragment name</td>
+              <td><i>URA3</i></td>
+              <td>2micron</td>
+
+            </tr>
+            <tr>
+              <td>Start position</td>
+              <td>14</td>
+              <td>1056</td>
+            </tr>
+            <tr>
+                <td>End position</td>
+                <td>1072</td>
+                <td>2038</td>
+              </tr>
+              <tr>
+                <td>Genbank file</td>
+                <td>pYTK074.gb</td>
+                <td>pUDE1217.gb</td>
+              </tr>
+          </table> 
+              
+        </div>
+    </div>
+    <br><br>
+          <figure>
+            <img class="center" src="{%static 'img/Map_Help.png'%}" alt="" />
+            <figcaption class="center"><small><b>Figure 2. Plasmid maps example.</b> <i>URA3</i> in pYTK074; start position: 14; end position: 1072. 2micron in pUDE1217; start position: 1056; end position: 2038. </small> 
+            </figcaption>
+          </figure> 
+          <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+                <br>
+                <h5 id="First_Sub_Point_1">1.1 How to enter input?</h5>
+
+          There are two ways to enter information to Chromosome Designer:
+          <ol type="A">
+            <li>Using a form</li>
+            <li>Using an excel file</li>
+
+        </ol><br>
+
+
+
+        <h6>A) Enter fragments through form</h6>
+        In Fig. 3, you can see how to enter information through a form using the "Enter fragments" tab.
+        <br><br>
+    </div>
+</div>
+
+
+        <figure>
+            <img class="center" src="{%static 'img/form.png'%}" alt="" />
+            <figcaption class="center"><small><b>Figure 3. Enter fragments through form.</b> Example: <i>URA3</i> as fragment 1. </small> 
+            </figcaption>
+        </figure> 
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+<br><br>
+        <h6>B) Enter fragments from file</h6>
+        To enter information using a file, you can download a <a href="{% static 'DB_files/Fragments_Upload.xlsx' %}">template excel file</a>  in the "Enter fragments from file" tab (Fig. 4). After filling in the fragments' information (Fig. 5), you can upload the file and the corresponding maps 
+        using the "Enter fragments from file" tab (Fig. 4). Make sure you provide all the maps specified in your excel file with the correct spelling.
+        <br><br>
+    </div>
+</div>
+
+<figure>
+    <img class="center" src="{%static 'img/Excelweb.png'%}" alt="" />
+    <figcaption class="center"><small><b>Figure 4. Enter fragments from file.</b> </small> 
+    </figcaption>
+</figure> 
+        <figure>
+            <img class="center" src="{%static 'img/Excel.png'%}" alt="" />
+            <figcaption class="center"><small><b>Figure 5. Excel file.</b> Example: <i>URA3</i> as fragment 1 and 2micron as fragment 2. </small> 
+            </figcaption>
+        </figure> 
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+<br><br>
+        <h5 id="First_Sub_Point_2">1.2 How to modify primer settings?</h5>
+        Chromosome Designer allows to modify several primer settings:
+        <ul>
+            <li>Minimum GC content. Default: 40%.</li>
+            <li>Maximum GC content. Default: 60%.</li>
+            <li>Minimum annealing temperature of the primer pair. Default: 58°C.</li>
+            <li>Maximum annealing temperature of the primer pair. Default: 64°C.</li>
+            <li>Maximum melting temperature difference between the two primers in the pair. Default: 5°C.</li>
+        </ul>
+
+        If primers meeting the specified requirments cannot be found, Chromosome Designer searches for primers in a range of 100 nucleotides upstream and downstream the start and end of the fragment, respectively (this option is activated by default).
+
+
+<br><br>
+        Changing primer settings can be done for all the fragments at once,  or for individual fragments.
+        <br><br>
+        <h6>A) Changing primer settings for all fragments</h6>
+        When entering fragments from a form, general primer settings can be modified under the "Primer settings" tab (Fig. 6). 
+        <br><br>
+
+    </div>
+</div>
+
+<figure>
+    <img class="center" src="{%static 'img/g_primer_form.png'%}" alt="" />
+    <figcaption class="center"><small><b>Figure 6. Modify general primer settings when entering fragments from a form.</b> </small> 
+    </figcaption>
+</figure> 
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+                <br>
+
+        When entering fragments from a file, general primer settings can be modified under the "General primer settings" tab of the excel file (Fig. 7).
+        <br><br>
+
+
+
+    </div>
+</div>
+
+<figure>
+    <img class="center" src="{%static 'img/g_primer_file.png'%}" alt="" />
+    <figcaption class="center"><small><b>Figure 7. Modify general primer settings when entering fragments from a file.</b> </small> 
+    </figcaption>
+</figure> 
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+                <br><br>
+
+        <h6>B) Changing primer settings for individual fragments</h6>
+        When entering fragments from a form, primer settings for individual fragments can be modified by expanding the "Adjust primers settings for this fragment" collapsible of the fragment of interest (Fig. 8). Make sure that the box to apply changes it ticked.
+        <br><br>
+
+    </div>
+</div>
+
+<figure>
+    <img class="center" src="{%static 'img/indi_form.png'%}" alt="" />
+    <figcaption class="center"><small><b>Figure 8. Modify primer settings for a specific fragment when entering fragments from a form.</b></small> 
+    </figcaption>
+</figure> 
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+                <br>
+        When entering fragments from a file, primer settings of individual fragments can be modified by adding the desired values for the fragment of interest in the "Fragments" tab of the excel file (Fig. 9). If no value is specified for a certain setting, the value from the "General primer settings" tab will be used.
+        In the example below, the minimum and maximum GC content of the <i>URA3</i> primers have been set to 30% and 70%, respectively. The maximum melting temperature difference between the two primers of the 2micron fragment has been reduced to 3°C.
+        <br><br>
+
+
+    </div>
+</div>
+
+<figure>
+    <img class="center" src="{%static 'img/indi_file.png'%}" alt="" />
+    <figcaption class="center"><small><b>Figure 9. Modify primer settings for a specific fragment when entering fragments from a file.</b> </small> 
+    </figcaption>
+</figure> 
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+
+
+
+            <br><br><br>
+        <h3 id="Second_Point_Header"> 2. Output</h3>
+                Chromosome Designer generates three output files:
+                <ul>
+                <li>A Primer Database</li>
+                <li>A Synthetic Chromosome Map</li>
+                <li>An Input Data Summary</li>
+                </ul>
+                <br>
+        <h5 id="Second_Sub_Point_1">2.1 Primer Database</h5>
+        This is an excel file containing the primers required to generate all the fragments that will be used for assembly. For each primer the following information is given:
+        <ul>
+            <li>Primer name</li>
+            <li>Primer sequence (including the homologous recombination overhangs used for assembly, in capital letters)</li>
+            <li>Primer length</li>
+            <li>Annealing temperature of the primer pair</li>
+            <li>Target region to be amplified</li>
+
+        </ul>
+
+    </div>
+</div>
+
+<figure>
+    <img class="center" src="{%static 'img/Primer_DB.png'%}" alt="" />
+    <figcaption class="center"><small><b>Figure 10. Primer Database.</b> </small> 
+    </figcaption>
+</figure> 
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+                If primers cannot be found for one or more fragments, try again releasing some primer constraints (modify primer settings).
+                <br><br>
+
+        <h5 id="Second_Sub_Point_2">2.2 Synthetic Chromosome Map</h5>
+
+    This is a genbank file of the synthetic chromosome that should result after assembly.
+    If primers cannot be found for one or more fragments, the map is not generated.
+
+    </div>
+</div>
+<br><br>
+
+<figure>
+    <img class="center" src="{%static 'img/Final_map.png'%}" alt="" />
+    <figcaption class="center"><small><b>Figure 11. Synthetic Chromosome Map.</b> </small> 
+    </figcaption>
+</figure> 
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6"><br><br>
+
+        <h5 id="Second_Sub_Point_3">2.3 Input Data Summary</h5>
+        This is an excel file containing the information entered for each of the fragments. This file can be modified and used as input in the "Enter fragments from file" tab.
+
+    </div>
+</div>
+<br><br>
+<figure>
+    <img class="center" src="{%static 'img/Input_summary.png'%}" alt="" />
+    <figcaption class="center"><small><b>Figure 12. Input Data Summary.</b> </small> 
+    </figcaption>
+</figure> 
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
+        
+
+
+    </div>
+    </div>
+    
+</body>
+{% endblock %}
+
