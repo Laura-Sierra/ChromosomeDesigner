@@ -1,0 +1,59 @@
+LOCUS       .                       2015 bp    DNA     circular UNK 01-JAN-1980
+DEFINITION  .
+ACCESSION   <unknown id>
+VERSION     <unknown id>
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     rep_origin      complement(61..824)
+                     /direction=LEFT
+                     /label="ColE1"
+     CDS             888..2015
+                     /codon_start=1
+                     /label="'crtE"
+                     /note="GGDP synthase"
+                     /translation="DYANILTAIPLEFTPQDDIVLLEPYHYLGKNPGKEIRSQLIEAFN
+                     YWLDVKKEDLEVIQNVVGMLHTASLLMDDVEDSSVLRRGSPVAHLIYGIPQTINTANYV
+                     YFLAYQEIFKLRPTPIPMPVIPPSSASLQSSVSSASSSSSASSENGGTSTPNSQIPFSK
+                     DTYLDKVITDEMLSLHRGQGPELFWRDSLTCPSEEEYVKMVLGKTGGLFRIAVRLMMAK
+                     SECDIDFVQLVNLISIYFQIRDDYMNLQSSEYAHNKNFAEDLTEGKFSFPTIHSIHANP
+                     SSRLVINTLQKKSTSPEILHHCVNYMRTETHSFEYTQEVLNTLSGALERELGRLQGEFA
+                     EANSKIDLGDVESEGRTGKNVKLEAILKKLADIPL"
+ORIGIN
+        1 ttagggagca catccatgcc aatagctcga caagcggcga gagccttgca cctatgctat
+       61 tcatgaccaa aatcccttaa cgtgagtttt cgttccactg agcgtcagac cccgtagaaa
+      121 agatcaaagg atcttcttga gatccttttt ttctgcgcgt aatctgctgc ttgcaaacaa
+      181 aaaaaccacc gctaccagcg gtggtttgtt tgccggatca agagctacca actctttttc
+      241 cgaaggtaac tggcttcagc agagcgcaga taccaaatac tgttcttcta gtgtagccgt
+      301 agttaggcca ccacttcaag aactctgtag caccgcctac atacctcgct ctgctaatcc
+      361 tgttaccagt ggctgctgcc agtggcgata agtcgtgtct taccgggttg gactcaagac
+      421 gatagttacc ggataaggcg cagcggtcgg gctgaacggg gggttcgtgc acacagccca
+      481 gcttggagcg aacgacctac accgaactga gatacctaca gcgtgagcta tgagaaagcg
+      541 ccacgcttcc cgaagggaga aaggcggaca ggtatccggt aagcggcagg gtcggaacag
+      601 gagagcgcac gagggagctt ccagggggaa acgcctggta tctttatagt cctgtcgggt
+      661 ttcgccacct ctgacttgag cgtcgatttt tgtgatgctc gtcagggggg cggagcctat
+      721 ggaaaaacgc cagcaacgcg gcctttttac ggttcctggc cttttgctgg ccttttgctc
+      781 acatgttctt tcctgcgtta tcccctgatt ctgtggataa ccgtgacggc actttgcaca
+      841 tcatcacgca ttctaattca tggcgcatca ttacaacacg ctgaatggat tacgcgaaca
+      901 tcctcacagc aattccactc gagtttactc ctcaggatga tatcgtgctc cttgaaccgt
+      961 atcactacct aggaaagaac cctggaaaag aaattcgatc acaactcatc gaggctttca
+     1021 actattggtt ggatgtcaag aaggaggatc tcgaggtcat ccagaacgtt gttggcatgc
+     1081 tacataccgc tagcttatta atggacgatg tggaggattc atcggtcctc aggcgtgggt
+     1141 cgcctgtggc ccatctaatt tacgggattc cgcagacaat aaacactgca aactacgtct
+     1201 actttctggc ttatcaagag atcttcaagc ttcgcccaac accgataccc atgcctgtaa
+     1261 ttcctccttc atctgcttcg cttcaatcat ccgtctcctc tgcatcctcc tcctcctcgg
+     1321 cctcgtctga aaacgggggc acgtcaactc ctaattcgca gattccgttc tcgaaagata
+     1381 cgtatcttga taaagtgatc acagacgaga tgctttccct ccatagaggg caaggcccgg
+     1441 agctattctg gagagatagt ctgacgtgtc ctagcgaaga ggaatatgtg aaaatggttc
+     1501 ttggaaagac gggaggtttg ttccgtatag cggtcagatt gatgatggca aagtcagaat
+     1561 gtgacataga ctttgtccag cttgtcaact tgatctcaat atacttccag atcagggatg
+     1621 actatatgaa ccttcagtct tctgagtatg cccataataa gaattttgca gaggacctca
+     1681 cagaaggaaa attcagtttt cccactatcc actcgattca tgccaacccc tcatcgagac
+     1741 tcgtcatcaa tacgttgcag aagaaatcga cctctcctga gatccttcac cactgtgtaa
+     1801 actacatgcg cacagaaacc cactcattcg aatatactca ggaagtcctc aacaccttgt
+     1861 caggtgcact cgagagagaa ctaggaaggc ttcaaggaga gttcgcagaa gctaactcaa
+     1921 agattgatct tggagacgta gagtcggaag gaagaacggg gaagaacgtc aaattggaag
+     1981 cgatcctgaa aaagctagcc gatatccctc tgtga
+//

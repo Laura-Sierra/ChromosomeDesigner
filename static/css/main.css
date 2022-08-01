@@ -1,0 +1,27 @@
+#main {
+    padding-top: 74px;
+}
+
+@media (min-width: 992px) {
+    #main {
+      padding-top: 104px;
+    }
+}
+
+.masthead {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+@media (min-width: 992px) {
+    #masthead {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+}
+
+
+label.required::after {
+  content: ' *';
+  color: red;
+}
