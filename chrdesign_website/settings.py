@@ -154,7 +154,7 @@ DEFAULT_FROM_EMAIL = "L.SIERRA@student.tudelft.nl"
 
 
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = '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' 
+EMAIL_HOST_USER = XXX
+EMAIL_HOST_PASSWORD = XXX
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
